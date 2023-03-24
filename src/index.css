@@ -1,0 +1,119 @@
+/* Background image */
+* {
+  font-family: Oxygen, Ubuntu, Cantarell !important;
+}
+body {
+  background-image: url(./assets/photo-1490818387583-1baba5e638af.avif);
+  background-size: cover;
+  background-position: cover;
+}
+
+/* Styles for App component */
+.App {
+  margin: 0 auto;
+  max-width: 700px;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  position: relative;
+  top: 50px;
+}
+
+h1 {
+  text-align: center;
+  color: #2b2d42;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for IntroductionPageTitle component */
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for ChapterTitle component */
+h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for RecipeList component */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for RecipeTitle component */
+h4 {
+  font-size: 16px;
+  color: #2b2d42;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for RecipeDescription component */
+p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Styles for RecipeForm component */
+form {
+  margin-top: 30px;
+}
+
+form h3 {
+  font-size: 20px;
+  color: #2b2d42;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #2b2d42;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #2b2d42;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+  background-color: #333;
+}
