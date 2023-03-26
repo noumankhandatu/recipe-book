@@ -4,7 +4,7 @@ import axios from "axios";
 export default function App() {
   const [getTitle, setTitle] = useState(null);
   const [getIntro, setIntro] = useState(null);
-  const [gptData, setData] = useState(null);
+  const [gptData, setData] = useState("");
   const [openBook, setOpenBook] = useState(true);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ export default function App() {
     }
     setOpenBook(false);
     const data = {
-      prompt: `Create an outline of the book in British Tone English. My book title is ${getTitle}. Please briefly introduce ${getIntro} in up to 180-200 words, write chapter titles, and write me the recipes for ${getIntro}. The measurements will be in the Metric system (grams, celsius), and cups/teaspoons in brackets. Write closing titles (up to 3), Write my index Index, and Write my Glossary as well`,
+      prompt: `Create an outline of the book in British Tone English. My book title is ${getTitle}. Please briefly introduce ${getIntro} , Write chapter titles, and Write me the recipes for ${getIntro}. The measurements will be in the Metric system (grams, celsius), and cups/teaspoons in brackets. Write closing titles (up to 3), Write my index Index, and Write my Glossary as well`,
     };
     const response = await axios
       .post("http://localhost:5000/chatgpt", data)
@@ -31,6 +31,15 @@ export default function App() {
   const Refresh = () => {
     window.location.reload(true);
   };
+
+  // string to bold
+
+  // Replace "Outline of the Book: Cooking", "Introduction" and "Chapter 1" with the same text wrapped in <strong> tags
+  const boldGPTDATA = gptData.replace(
+    /(Outline of the Book: Cooking|Introduction|Chapter|Outline|Closing Titles|Index|Glossary)/g,
+    "<strong>$1</strong>"
+  );
+
   return (
     <div>
       {openBook ? (
@@ -47,6 +56,7 @@ export default function App() {
           <div>
             <label>Title </label>
             <input
+              placeholder="Title of your book"
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               id="title"
@@ -54,8 +64,12 @@ export default function App() {
           </div>
           {/* introduction */}
           <div>
-            <label>Introduction </label>
-            <textarea onChange={(e) => setIntro(e.target.value)} rows={3} />
+            <label>Introduction</label>
+            <textarea
+              placeholder="Write prerequisites for you book , and what you want to make"
+              onChange={(e) => setIntro(e.target.value)}
+              rows={3}
+            />
           </div>
           {/* button */}
           <div style={imageStyle}>
@@ -79,7 +93,17 @@ export default function App() {
           </div>
           {gptData ? (
             <div>
-              <div style={{ whiteSpace: "pre-wrap" }}>{gptData}</div>
+              {/* text */}
+
+              <div
+                style={{
+                  whiteSpace: "pre-wrap",
+                  lineHeight: 3,
+                  fontSize: "18px",
+                }}
+                dangerouslySetInnerHTML={{ __html: boldGPTDATA }}
+              />
+              {/* text */}
               <div style={imageStyle}>
                 <button
                   style={{ marginTop: "30px", marginBottom: "20px" }}
