@@ -16,7 +16,7 @@ export default function App() {
       prompt: `Create an outline of the book in British Tone English. My book title is ${getTitle}. Please briefly introduce ${getIntro} , Write chapter titles, and Write me the recipes for ${getIntro}. The measurements will be in the Metric system (grams, celsius), and cups/teaspoons in brackets. Write closing titles (up to 3), Write my index Index, and Write my Glossary as well`,
     };
     const response = await axios
-      .post("http://localhost:5000/chatgpt", data)
+      .post("https://chatgpt-api-jcug.vercel.app/chatgpt", data)
       .catch((err) => {
         console.log(err);
       });
